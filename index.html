@@ -27,10 +27,6 @@
             color: var(--black);
             overflow-x: hidden;
             line-height: 1.5;
-        }
-
-        /* Cursor personalizado */
-        body {
             cursor: crosshair;
         }
 
@@ -38,7 +34,7 @@
             cursor: pointer;
         }
 
-        /* Navbar Sticky */
+        /* ==================== NAVBAR ==================== */
         .navbar {
             position: fixed;
             top: 0;
@@ -114,13 +110,39 @@
             }
         }
 
-        /* Hero Section */
+        /* ==================== SECCIONES BASE ==================== */
+        /* Usa .section-light para fondo blanco o .section-dark para fondo negro */
+        
+        .section {
+            padding: 8rem 2rem;
+        }
+
+        .section-light {
+            background: var(--white);
+            color: var(--black);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-dark {
+            background: var(--black);
+            color: var(--white);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .section-dark .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ==================== HERO ==================== */
         .hero {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 2rem;
             position: relative;
             overflow: hidden;
             margin-top: 60px;
@@ -147,7 +169,7 @@
             width: 100%;
         }
 
-        h1 {
+        .main-title {
             font-family: 'Archivo Black', sans-serif;
             font-size: clamp(4rem, 15vw, 12rem);
             line-height: 0.9;
@@ -188,29 +210,44 @@
             box-shadow: -5px 5px 0 var(--accent);
         }
 
-        /* Sections */
-        section {
-            padding: 8rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            font-weight: 700;
+            animation: bounce 2s ease-in-out infinite;
         }
 
-        section:nth-child(odd):not(.hero) {
-            background: var(--black);
-            color: var(--white);
-        }
-
-        section:nth-child(odd):not(.hero) {
-            margin: 0;
-            max-width: 100%;
-        }
-
-        h2 {
+        /* ==================== TÍTULOS Y TEXTOS ==================== */
+        .section-title {
             font-family: 'Archivo Black', sans-serif;
             font-size: clamp(3rem, 8vw, 6rem);
             margin-bottom: 3rem;
             line-height: 1;
             letter-spacing: -0.02em;
+        }
+
+        .big-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            line-height: 1;
+            color: var(--accent);
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* ==================== LAYOUTS ==================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
         }
 
         .grid {
@@ -220,6 +257,13 @@
             margin-top: 4rem;
         }
 
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==================== CARDS ==================== */
         .card {
             border-top: 4px solid var(--accent);
             padding-top: 2rem;
@@ -237,99 +281,7 @@
             opacity: 0.8;
         }
 
-        /* About section con layout asimétrico */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        @media (max-width: 768px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .big-number {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(4rem, 10vw, 8rem);
-            line-height: 1;
-            color: var(--accent);
-        }
-
-        .about-text p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        /* Contact section */
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-link {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(2rem, 5vw, 4rem);
-            text-decoration: none;
-            color: var(--white);
-            border-bottom: 4px solid transparent;
-            display: inline-block;
-            transition: all 0.3s ease;
-            width: fit-content;
-        }
-
-        .contact-link:hover {
-            border-bottom-color: var(--accent);
-            transform: translateX(20px);
-        }
-
-        /* Footer */
-        footer {
-            padding: 4rem 2rem;
-            text-align: center;
-            border-top: 2px solid var(--black);
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        /* Animations */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.9rem;
-            font-weight: 700;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            50% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-        }
-
-        /* Stats section */
+        /* ==================== STATS ==================== */
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -356,7 +308,7 @@
             opacity: 0.7;
         }
 
-        /* QR Code styles */
+        /* ==================== QR CODE ==================== */
         .qr-container {
             margin-top: 2rem;
             display: flex;
@@ -389,10 +341,65 @@
             border-left: 4px solid var(--accent);
             font-weight: 700;
         }
+
+        /* ==================== CONTACT LINKS ==================== */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-link {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            text-decoration: none;
+            color: var(--white);
+            border-bottom: 4px solid transparent;
+            display: inline-block;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+
+        .contact-link:hover {
+            border-bottom-color: var(--accent);
+            transform: translateX(20px);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 2px solid var(--black);
+            font-size: 0.9rem;
+            color: var(--gray);
+            background: var(--white);
+        }
+
+        /* ==================== ANIMACIONES ==================== */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Navbar Sticky -->
+    <!-- ==================== NAVBAR ==================== -->
     <nav class="navbar">
         <a href="#home" class="navbar-brand">23<span class="accent">CORE</span></a>
         <button class="navbar-burger" aria-label="menu">
@@ -408,58 +415,63 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <!-- ==================== HERO (Fondo Blanco) ==================== -->
+    <section id="home" class="hero section section-light">
         <div class="hero-content">
-            <h1>23<span class="accent">CORE</span></h1>
+            <h1 class="main-title">23<span class="accent">CORE</span></h1>
             <p class="tagline">Red mesh descentralizada en Jaén. Comunicación libre sin internet ni torres de telefonía</p>
             <a href="#unirse" class="cta">ÚNETE A LA RED</a>
         </div>
         <div class="scroll-indicator">SCROLL ↓</div>
     </section>
 
-    <!-- About Section -->
-    <section id="que-es">
-        <div class="about-grid">
+    <!-- ==================== ¿QUÉ ES? (Fondo Negro) ==================== -->
+    <section id="que-es" class="section section-dark">
+        <div class="container">
+            <div class="about-grid">
             <div>
                 <div class="big-number">01</div>
             </div>
             <div class="about-text">
-                <h2>¿QUÉ ES?</h2>
+                <h2 class="section-title">¿QUÉ ES?</h2>
                 <p>23Core es una red de comunicación mesh usando tecnología LoRa en la provincia de Jaén (código postal 23).</p>
                 <p>Comunicación cifrada, sin intermediarios, sin depender de infraestructura centralizada. Funciona incluso cuando todo lo demás falla.</p>
                 <p>Basado en MeshCore: código abierto, eficiente, escalable.</p>
             </div>
         </div>
+        </div>
     </section>
 
-    <!-- Stats Section -->
-    <section id="la-red" style="background: var(--black); color: var(--white); margin: 0; max-width: 100%;">
-        <h2>LA RED</h2>
-        <div class="stats">
-            <div class="stat">
-                <span class="stat-number">--</span>
-                <span class="stat-label">Nodos activos</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">--</span>
-                <span class="stat-label">Km² cobertura</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">∞</span>
-                <span class="stat-label">Potencial</span>
+    <!-- ==================== LA RED (Fondo Negro) ==================== -->
+    <section id="la-red" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">LA RED</h2>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">--</span>
+                    <span class="stat-label">Nodos activos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">--</span>
+                    <span class="stat-label">Km² cobertura</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Potencial</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- How to Join Section -->
-    <section id="unirse">
-        <div class="about-grid">
+    <!-- ==================== CÓMO UNIRSE (Fondo Negro) ==================== -->
+    <section id="unirse" class="section section-dark">
+        <div class="container">
+            <div class="about-grid">
             <div>
                 <div class="big-number">02</div>
             </div>
             <div>
-                <h2>CÓMO UNIRSE</h2>
+                <h2 class="section-title">CÓMO UNIRSE</h2>
                 <div class="grid">
                     <div class="card">
                         <h3>01 — Hardware</h3>
@@ -484,21 +496,24 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contacto" style="background: var(--black); color: var(--white); margin: 0; max-width: 100%;">
-        <h2>CONTACTO</h2>
-        <div class="contact-links">
-            <a href="#" class="contact-link" target="_blank">DISCORD →</a>
-            <a href="https://github.com/meshcore-dev/MeshCore" class="contact-link" target="_blank">GITHUB →</a>
-            <a href="https://meshcore.co.uk" class="contact-link" target="_blank">MESHCORE.CO.UK →</a>
-            <a href="mailto:23core@proton.me" class="contact-link">EMAIL →</a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- ==================== CONTACTO (Fondo Negro) ==================== -->
+    <section id="contacto" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">CONTACTO</h2>
+            <div class="contact-links">
+                <a href="#" class="contact-link" target="_blank">DISCORD →</a>
+                <a href="https://github.com/meshcore-dev/MeshCore" class="contact-link" target="_blank">GITHUB →</a>
+                <a href="https://meshcore.co.uk" class="contact-link" target="_blank">MESHCORE.CO.UK →</a>
+                <a href="mailto:23core@proton.me" class="contact-link">EMAIL →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
         <p>23CORE — RED MESH JAÉN — 2026</p>
         <p style="margin-top: 1rem; font-size: 0.8rem;">Off-grid • Descentralizada • Libre</p>
         <p style="margin-top: 1rem; font-size: 0.8rem;">Licencia MIT — Código y contenido libre</p>
@@ -531,21 +546,6 @@
                 }
             });
         });
-
-        // Animación de entrada para elementos al hacer scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
     </script>
 </body>
 </html>
