@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23Core — Red Mesh Jaén</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Archivo+Black&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --accent: #00b84a;
+            --gray: #666;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* Cursor personalizado */
+        body {
+            cursor: crosshair;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '23';
+            position: absolute;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 60vw;
+            opacity: 0.03;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(4rem, 15vw, 12rem);
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+            animation: slideUp 1s ease-out;
+        }
+
+        .accent {
+            color: var(--accent);
+        }
+
+        .tagline {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 700;
+            max-width: 800px;
+            margin-bottom: 3rem;
+            animation: slideUp 1s ease-out 0.2s backwards;
+        }
+
+        .cta {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 3px solid var(--black);
+            animation: slideUp 1s ease-out 0.4s backwards;
+        }
+
+        .cta:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translate(5px, -5px);
+            box-shadow: -5px 5px 0 var(--accent);
+        }
+
+        /* Sections */
+        section {
+            padding: 8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section:nth-child(even) {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        section:nth-child(even) {
+            margin: 0;
+            max-width: 100%;
+        }
+
+        h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin-bottom: 3rem;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .card {
+            border-top: 4px solid var(--accent);
+            padding-top: 2rem;
+        }
+
+        .card h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        /* About section con layout asimétrico */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .big-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            line-height: 1;
+            color: var(--accent);
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Contact section */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-link {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            text-decoration: none;
+            color: var(--white);
+            border-bottom: 4px solid transparent;
+            display: inline-block;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+
+        .contact-link:hover {
+            border-bottom-color: var(--accent);
+            transform: translateX(20px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 2px solid var(--black);
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            font-weight: 700;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        /* Stats section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 4rem;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+        }
+
+        /* QR Code styles */
+        .qr-container {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            border: 4px solid var(--black);
+            padding: 0.5rem;
+            background: var(--white);
+            transition: transform 0.3s ease;
+        }
+
+        .qr-code:hover {
+            transform: scale(1.05);
+        }
+
+        .public-key {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            background: var(--black);
+            color: var(--accent);
+            padding: 0.75rem 1rem;
+            word-break: break-all;
+            display: block;
+            border-left: 4px solid var(--accent);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>23<span class="accent">CORE</span></h1>
+            <p class="tagline">Red mesh descentralizada en Jaén. Comunicación libre sin internet ni torres celulares.</p>
+            <a href="#unirse" class="cta">ÚNETE A LA RED</a>
+        </div>
+        <div class="scroll-indicator">SCROLL ↓</div>
+    </section>
+
+    <!-- About Section -->
+    <section>
+        <div class="about-grid">
+            <div>
+                <div class="big-number">01</div>
+            </div>
+            <div class="about-text">
+                <h2>¿QUÉ ES?</h2>
+                <p>23Core es una red de comunicación mesh usando tecnología LoRa en la provincia de Jaén (código postal 23).</p>
+                <p>Comunicación cifrada, sin intermediarios, sin depender de infraestructura centralizada. Funciona incluso cuando todo lo demás falla.</p>
+                <p>Basado en MeshCore: código abierto, eficiente, escalable.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section style="background: var(--black); color: var(--white); margin: 0; max-width: 100%;">
+        <h2>LA RED</h2>
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-number">--</span>
+                <span class="stat-label">Nodos activos</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">--</span>
+                <span class="stat-label">Km² cobertura</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Potencial</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Join Section -->
+    <section id="unirse">
+        <div class="about-grid">
+            <div>
+                <div class="big-number">02</div>
+            </div>
+            <div>
+                <h2>CÓMO UNIRSE</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>01 — Hardware</h3>
+                        <p>Consigue un dispositivo compatible LoRa. Recomendado: Heltec v3 (~27€) o similar. Consulta la lista oficial de MeshCore.</p>
+                    </div>
+                    <div class="card">
+                        <h3>02 — Firmware</h3>
+                        <p>Flashea el firmware de MeshCore en tu dispositivo usando el flasher web oficial. Configura tu nodo con la región EU868 Narrow.</p>
+                    </div>
+                    <div class="card">
+                        <h3>03 — Conecta</h3>
+                        <p>Descarga la app MeshCore (Android/iOS) y conéctate vía Bluetooth.</p>
+                    </div>
+                    <div class="card">
+                        <h3>04 — Únete</h3>
+                        <p>Escanea el QR o introduce la clave pública para unirte al canal #23Core y empieza a comunicar.</p>
+                        <div class="qr-container">
+                            <img src="qr.png" alt="QR 23Core" class="qr-code">
+                            <code class="public-key">92c3293e85aee9cb11e5feb2373b1d52</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section style="background: var(--black); color: var(--white); margin: 0; max-width: 100%;">
+        <h2>CONTACTO</h2>
+        <div class="contact-links">
+            <a href="#" class="contact-link" target="_blank">DISCORD →</a>
+            <a href="https://github.com/meshcore-dev/MeshCore" class="contact-link" target="_blank">GITHUB →</a>
+            <a href="https://meshcore.co.uk" class="contact-link" target="_blank">MESHCORE.CO.UK →</a>
+            <a href="/cdn-cgi/l/email-protection#7404181517111c1b18101106344647171b06115a1107" class="contact-link">EMAIL →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>23CORE — RED MESH JAÉN — 2026</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">Off-grid • Descentralizada • Libre</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">Licencia MIT — Código y contenido libre</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animación de entrada para elementos al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+  
