@@ -1,0 +1,22 @@
+# ===== macOS =====
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Archivos que crea Finder
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directorios en red
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
