@@ -2,8 +2,27 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>23Core — Red Mesh Jaén</title>
+    <title>23Core — Red Mesh LoRa Descentralizada en Jaén</title>
+    
+    <!-- SEO Básico -->
+    <meta name="description" content="Red mesh descentralizada con tecnología LoRa en Jaén. Comunicación libre, cifrada y sin intermediarios. Únete a 23Core y forma parte de la red.">
+    <meta name="keywords" content="mesh network, LoRa, Jaén, red descentralizada, MeshCore, comunicación libre, off-grid">
+    <meta name="author" content="23Core">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://23core.es/">
+    <meta property="og:title" content="23Core — Red Mesh LoRa Descentralizada en Jaén">
+    <meta property="og:description" content="Red mesh descentralizada con tecnología LoRa en Jaén. Comunicación libre, cifrada y sin intermediarios.">
+    <meta property="og:image" content="https://23core.es/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://23core.es/">
+    <meta property="twitter:title" content="23Core — Red Mesh LoRa Descentralizada en Jaén">
+    <meta property="twitter:description" content="Red mesh descentralizada con tecnología LoRa en Jaén. Comunicación libre, cifrada y sin intermediarios.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Archivo+Black&display=swap" rel="stylesheet">
@@ -27,7 +46,7 @@
             color: var(--black);
             overflow-x: hidden;
             line-height: 1.5;
-            cursor: crosshair;
+            cursor: default;
         }
 
         a {
@@ -370,7 +389,81 @@
             border-bottom-color: var(--accent);
             transform: translateX(20px);
         }
+/* ==================== DEVICES ==================== */
+.devices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
 
+.device-card {
+    border: 3px solid var(--accent);
+    padding: 2rem;
+    background: var(--black);
+    transition: all 0.3s ease;
+}
+
+.device-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 0 var(--accent);
+}
+
+.device-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--accent);
+    background: var(--white);
+}
+
+.device-card h3 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.device-price {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.device-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    min-height: 3em;
+}
+
+.device-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.device-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border: 2px solid var(--white);
+    transition: all 0.3s ease;
+}
+
+.device-link:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--black);
+    transform: translateX(3px);
+}
         /* ==================== FOOTER ==================== */
         .footer {
             padding: 4rem 2rem;
@@ -415,6 +508,7 @@
         <div class="navbar-menu">
             <a href="#que-es" class="navbar-item">¿Qué es?</a>
             <a href="#la-red" class="navbar-item">La Red</a>
+            <a href="#dispositivos" class="navbar-item">Dispositivos</a>
             <a href="#unirse" class="navbar-item">Unirse</a>
             <a href="#contacto" class="navbar-item">Contacto</a>
         </div>
@@ -468,6 +562,46 @@
         </div>
     </section>
 
+    <!-- ==================== DISPOSITIVOS (Fondo Negro) ==================== -->
+<section id="dispositivos" class="section section-dark">
+    <div class="container">
+        <h2 class="section-title">DISPOSITIVOS</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.8;">Hardware recomendado compatible con MeshCore</p>
+        
+        <div class="devices-grid">
+            <div class="device-card">
+                <img src="heltec-v3.jpg" alt="Heltec WiFi LoRa 32 V3" class="device-image">
+                <h3>Heltec WiFi LoRa 32 V3</h3>
+                <p class="device-price">~27€</p>
+                <p class="device-desc">El más popular. Pantalla OLED, GPS opcional, excelente alcance.</p>
+                <div class="device-links">
+                    <a href="#" class="device-link" target="_blank" rel="noopener noreferrer">AliExpress →</a>
+                </div>
+            </div>
+
+            <div class="device-card">
+                <img src="sensecap-t1000.jpg" alt="SenseCAP Card Tracker T1000-E" class="device-image">
+                <h3>SenseCAP Card Tracker T1000-E</h3>
+                <p class="device-price">~40/60€</p>
+                <p class="device-desc">Formato tarjeta de visita, autoalimentado, all in one.</p>
+                <div class="device-links">
+                    <a href="https://s.click.aliexpress.com/e/_c3QqSalz" class="device-link" target="_blank" rel="noopener noreferrer">AliExpress →</a>
+                </div>
+            </div>
+
+            <div class="device-card">
+                <img src="lilygo-tpager.jpg" alt="LilyGO T-Pager" class="device-image">
+                <h3>LilyGO T-Pager</h3>
+                <p class="device-price">~90€</p>
+                <p class="device-desc">Diseño tipo beeper/pager. Ultra portable, batería de larga duración.</p>
+                <div class="device-links">
+                    <a href="https://s.click.aliexpress.com/e/_c3ve5iaP" class="device-link" target="_blank" rel="noopener noreferrer">AliExpress →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- ==================== CÓMO UNIRSE (Fondo Negro) ==================== -->
     <section id="unirse" class="section section-dark">
         <div class="container">
@@ -484,7 +618,7 @@
                     </div>
                     <div class="card">
                         <h3>02 — Firmware</h3>
-                        <p>Flashea el firmware de MeshCore en tu dispositivo usando el <a href="https://flasher.meshcore.co.uk/" target=_blank">flasher web oficial</a>.</p>
+                        <p>Flashea el firmware de MeshCore en tu dispositivo usando el <a href="https://flasher.meshcore.co.uk/" target=_blank>flasher web oficial</a>.</p>
                     </div>
                     <div class="card">
                         <h3>03 — Conecta</h3>
