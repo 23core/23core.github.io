@@ -304,6 +304,15 @@
             text-decoration: none;
             font-weight: 700;
         }
+.section-dark a {
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.section-dark a:hover {
+    text-decoration: underline;
+}
 
         /* ==================== STATS ==================== */
         .stats {
@@ -566,7 +575,7 @@
 <section id="dispositivos" class="section section-dark">
     <div class="container">
         <h2 class="section-title">DISPOSITIVOS</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.8;">Hardware recomendado compatible con MeshCore</p>
+        <p style="font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.8;">Hardware recomendado compatible con MeshCore. Consulta <a href="https://meshcore.co.uk" target="_blank">meshcore.co.uk</a> para un listado más amplio.</p>
         
         <div class="devices-grid">
             <div class="device-card">
@@ -580,6 +589,16 @@
             </div>
 
             <div class="device-card">
+                <img src="wio-tracker.jpg" alt="Wio Tracker L1 Pro" class="device-image">
+                <h3>Wio Tracker L1 Pro</h3>
+                <p class="device-price">~40€</p>
+                <p class="device-desc">Formato walkie, con gps, all in one.</p>
+                <div class="device-links">
+                    <a href="https://www.seeedstudio.com/Wio-Tracker-L1-Pro-p-6454.html?sensecap_affiliate=yqrsY5L&referring_service=link" class="device-link" target="_blank" rel="noopener noreferrer">SeedStudio →</a>
+                </div>
+            </div>
+
+            <div class="device-card">
                 <img src="sensecap-t1000.jpg" alt="SenseCAP Card Tracker T1000-E" class="device-image">
                 <h3>SenseCAP Card Tracker T1000-E</h3>
                 <p class="device-price">~40/60€</p>
@@ -587,16 +606,6 @@
                 <div class="device-links">
                     <a href="https://s.click.aliexpress.com/e/_c3QqSalz" class="device-link" target="_blank" rel="noopener noreferrer">AliExpress →</a>
                     <a href="https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html?sensecap_affiliate=yqrsY5L&referring_service=link" class="device-link" target="_blank" rel="noopener noreferrer">SeedStudio →</a>
-                </div>
-            </div>
-
-            <div class="device-card">
-                <img src="wio-tracker.jpg" alt="Wio Tracker L1 Pro" class="device-image">
-                <h3>Wio Tracker L1 Pro</h3>
-                <p class="device-price">~40€</p>
-                <p class="device-desc">Formato walkie, con gps, all in one.</p>
-                <div class="device-links">
-                    <a href="https://www.seeedstudio.com/Wio-Tracker-L1-Pro-p-6454.html?sensecap_affiliate=yqrsY5L&referring_service=link" class="device-link" target="_blank" rel="noopener noreferrer">SeedStudio →</a>
                 </div>
             </div>
 
@@ -635,7 +644,7 @@
                 <div class="grid">
                     <div class="card">
                         <h3>01 — Hardware</h3>
-                        <p>Consigue un dispositivo compatible LoRa. Recomendado: Heltec v3 (~27€) o similar. Consulta la lista oficial de MeshCore.</p>
+                        <p>Consigue un dispositivo compatible LoRa. Recomendados: Heltec v3 o Wio Tracker L1 Pro. Consulta nuestra lista de <a href="#dispositivos">dispositivos recomendados</a>.</p>
                     </div>
                     <div class="card">
                         <h3>02 — Firmware</h3>
