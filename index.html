@@ -300,19 +300,24 @@
             opacity: 0.8;
         }
         .card p a {
-            color: var(--accent);
+            color: var(--white);
             text-decoration: none;
             font-weight: 700;
         }
-.section-dark a {
-    color: var(--accent);
-    font-weight: 700;
-    text-decoration: none;
-}
+        .card p a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        .section-dark a {
+            color: var(--white);  /* Cambiado de var(--accent) a var(--white) */
+            font-weight: 700;
+            text-decoration: none;
+        }
 
-.section-dark a:hover {
-    text-decoration: underline;
-}
+        .section-dark a:hover {
+            color: var(--accent);  /* Verde solo al pasar el ratón */
+            text-decoration: underline;
+        }
 
         /* ==================== STATS ==================== */
         .stats {
@@ -397,6 +402,7 @@
         .contact-link:hover {
             border-bottom-color: var(--accent);
             transform: translateX(20px);
+            text-decoration: none;
         }
 /* ==================== DEVICES ==================== */
 .devices-grid {
@@ -716,5 +722,6 @@
             });
         });
     </script>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "93f0fe4b491749248cd5ef87b3adb398"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
