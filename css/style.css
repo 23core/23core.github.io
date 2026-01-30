@@ -473,6 +473,14 @@
             color: var(--gray);
             background: var(--white);
         }
+        .footer-logo {
+    width: 40%;
+    max-width: 200px;     /* evita que se haga enorme en pantallas grandes */
+    height: auto;
+    display: block;
+    margin: 0 auto 1.5rem auto;  /* centrado y espacio debajo */
+    opacity: 0.95;
+}
 
         /* ==================== ANIMACIONES ==================== */
         @keyframes slideUp {

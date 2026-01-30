@@ -207,7 +207,8 @@
 
     <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
-        <p>23CORE — RED MESH JAÉN — 2026</p>
+        <img src="img/23core-patch-min.png" alt="23Core Patch" class="footer-logo">
+        <p>23CORE — RED MESH JAÉN —  <span id="year"></span></p>
         <p style="margin-top: 1rem; font-size: 0.8rem;">Off-grid • Descentralizada • Libre</p>
         <p style="margin-top: 1rem; font-size: 0.8rem;">Licencia MIT — Código y contenido libre</p>
     </footer>
@@ -239,6 +240,10 @@
                 }
             });
         });
+    </script>
+    <script>
+    // Año automático en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
     </script>
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "93f0fe4b491749248cd5ef87b3adb398"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
